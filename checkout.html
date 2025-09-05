@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout • Intreen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+  <header id="site-navbar"></header>
+  <main class="flex-grow max-w-7xl mx-auto px-4 py-10 grid lg:grid-cols-3 gap-8">
+    <section class="lg:col-span-2">
+      <h1 class="text-3xl font-extrabold">Checkout</h1>
+      <div id="checkout-items" class="mt-4"></div>
+    </section>
+    <aside class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm h-fit">
+      <h2 class="text-xl font-bold mb-3">Order Summary</h2>
+      <div class="flex items-center justify-between"><span>Total</span><strong data-cart-total>$0.00</strong></div>
+      <form id="checkout-form" class="grid gap-3 mt-4">
+        <input required placeholder="Full name" class="px-3 py-2 border rounded-xl">
+        <input required type="email" placeholder="Email" class="px-3 py-2 border rounded-xl">
+        <input required placeholder="Billing address" class="px-3 py-2 border rounded-xl">
+        <button class="px-4 py-2 rounded-2xl bg-blue-600 text-white hover:bg-blue-700">Place Order</button>
+      </form>
+      <p id="checkout-status" class="text-sm text-slate-600 mt-2"></p>
+    </aside>
+  </main>
+  <footer class="bg-blue-900 text-white" id="site-footer"></footer>
+  <script type="module">
+    import { bootLayout } from '/js/layout.js'; bootLayout();
+    import { getCart, updateCartUI, wireRemoveButtons, clearCart, showToast } from '/js/cart.js';
+    updateCartUI(); wireRemoveButtons();
+    document.getElementById('checkout-form')?.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      if (getCart().length === 0) { document.getElementById('checkout-status').textContent = 'Cart is empty.'; return; }
+      document.getElementById('checkout-status').textContent = 'Order placed! (demo)';
+      showToast('Order placed!');
+      clearCart();
+      updateCartUI();
+      setTimeout(()=> location.href='/', 1000);
+    });
+  </script>
+</body>
+</html>

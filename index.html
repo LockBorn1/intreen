@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intreen — Learn • Work • Grow</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .splash { position: fixed; inset: 0; background: #1d4ed8; z-index: 9999; display:flex; align-items:center; justify-content:center; }
+    .splash .logo { position:absolute; inset:0; margin:auto; height:128px; width:auto; opacity:.18; pointer-events:none; user-select:none; }
+    .splash .viewport { overflow: hidden; }
+    .splash .stack { display:flex; flex-direction:column; align-items:center; will-change:transform; }
+    .splash .word { display:block; margin:0; padding:0; line-height:1; color:#fff; font-weight:800; font-size:68px; letter-spacing:-.02em; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+  <!-- TRUE SPLASH SCREEN -->
+  <div id="splash" class="splash">
+    <img src="/img/logo.webp" alt="Intreen" class="logo">
+    <div class="viewport">
+      <div id="splash-stack" class="stack">
+        <span class="word">WORK</span>
+        <span class="word">LEARN</span>
+        <span class="word">GROW</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar placeholder -->
+  <header id="site-navbar"></header>
+
+  <!-- Main content -->
+  <main class="flex-grow">
+    <section class="max-w-7xl mx-auto px-4 py-16 sm:py-24">
+      <div class="grid sm:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Build your future with Intreen</h1>
+          <p class="mt-4 text-slate-600 text-lg">Practical resources, events and tools to learn, work and grow.</p>
+          <div class="mt-8 flex gap-3">
+            <a href="/events.html" class="px-4 py-2 rounded-2xl bg-slate-900 text-white hover:bg-slate-800">Browse Events</a>
+            <a href="/e-learning.html" class="px-4 py-2 rounded-2xl border border-slate-300 hover:bg-slate-100">Explore Courses</a>
+          </div>
+        </div>
+        <div class="p-6 rounded-3xl bg-gradient-to-b from-white to-slate-100 border border-slate-200 shadow-sm">
+          <h2 class="text-xl font-semibold mb-3">What is Intreen?</h2>
+          <ol class="list-decimal ml-5 text-slate-700 space-y-2">
+            <li>All‑in‑one hub: courses (LMS), jobs, events, business listings, and more.</li>
+            <li>Curated Caribbean events plus community submissions.</li>
+            <li>Clean, fast UI with mobile‑first design.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  
+    <section class="bg-white border-y border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 py-14">
+        <h2 class="text-2xl font-extrabold mb-6">Why creators choose Intreen</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <article class="rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <h3 class="font-bold mb-1">Built-in audience</h3>
+            <p class="text-slate-700">Help your course or product get discovered.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <h3 class="font-bold mb-1">Simple tools</h3>
+            <p class="text-slate-700">Upload lessons, set pricing, publish fast.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <h3 class="font-bold mb-1">Secure checkout</h3>
+            <p class="text-slate-700">Modern payments with receipts and VAT support.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <h3 class="font-bold mb-1">Analytics</h3>
+            <p class="text-slate-700">Track sales, views, and conversions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-14">
+      <h2 class="text-2xl font-extrabold mb-6">What can you do on Intreen?</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <article class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+          <h3 class="font-bold mb-1">Launch a course</h3>
+          <p class="text-slate-700">Set up modules, video lessons, quizzes, and certificates.</p>
+        </article>
+        <article class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+          <h3 class="font-bold mb-1">Post an event</h3>
+          <p class="text-slate-700">Show up in our curated feed and community calendar.</p>
+        </article>
+        <article class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+          <h3 class="font-bold mb-1">Sell products</h3>
+          <p class="text-slate-700">List items, manage orders, and earn revenue.</p>
+        </article>
+        <article class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+          <h3 class="font-bold mb-1">List your business</h3>
+          <p class="text-slate-700">Get discovered by customers ready to buy.</p>
+        </article>
+        <article class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+          <h3 class="font-bold mb-1">Hire or get hired</h3>
+          <p class="text-slate-700">Share roles and find talent.</p>
+        </article>
+        <article class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+          <h3 class="font-bold mb-1">Grow together</h3>
+          <p class="text-slate-700">Join affiliates and partnerships.</p>
+        </article>
+      </div>
+    </section>
+    
+</main>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white" id="site-footer"></footer>
+
+  <!-- Layout boot -->
+  <script type="module">
+    import { bootLayout } from '/js/layout.js'; bootLayout();
+  </script>
+
+  
+  <!-- Splash animation logic: show exactly one word at a time, then fade -->
+  <script>
+    (function(){
+      const stack = document.getElementById('splash-stack');
+      const splash = document.getElementById('splash');
+      if (!stack || !splash) return;
+      const words = Array.from(stack.children);
+      // Measure tallest word and set viewport height to that exact px
+      requestAnimationFrame(()=>{
+        const maxH = Math.max(...words.map(w => w.getBoundingClientRect().height));
+        const viewport = splash.querySelector('.viewport');
+        viewport.style.height = Math.ceil(maxH) + 'px';
+        // Set fixed heights for each word to avoid peeking
+        words.forEach(w => { w.style.height = Math.ceil(maxH) + 'px'; });
+      });
+
+      let i = 0;
+      function step(){
+        i++;
+        if (i < words.length){
+          const h = words[0].getBoundingClientRect().height;
+          stack.style.transform = 'translate3d(0,' + (-i*h) + 'px,0)';
+          setTimeout(step, 900);
+        } else {
+          splash.style.transition = 'opacity .6s ease';
+          splash.style.opacity = '0';
+          setTimeout(()=> splash.remove(), 650);
+        }
+      }
+      setTimeout(step, 900);
+    })();
+  </script>
+
+</body>
+</html>

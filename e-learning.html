@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E‑Learning • Intreen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+  <header id="site-navbar"></header>
+  
+<section class="bg-gradient-to-b from-blue-700 to-blue-600 text-white">
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-extrabold">E‑Learning</h1>
+    <p class="text-white/80 mt-1">Courses, tutorials and certifications.</p>
+  </div>
+</section>
+
+  <main class="flex-grow max-w-7xl mx-auto px-4 py-10 space-y-6">                <h1 class="text-3xl font-extrabold">E‑Learning</h1>                <p class="text-slate-600">Buy courses and learn at your own pace.</p>                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <article class="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm card" data-tags="business" data-id="c1" data-title="Course 101: Launch Your Business" data-price="49.0">
+      <h3 class="font-bold text-lg mb-1">Course 101: Launch Your Business</h3>
+      <p class="text-slate-700 mb-3">High‑impact lessons with projects and quizzes.</p>
+      <div class="flex items-center justify-between">
+        <span class="font-semibold">$49.00</span>
+        <button class="add-to-cart px-3 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700">Add to cart</button>
+      </div>
+    </article>
+    
+    <article class="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm card" data-tags="tech" data-id="c2" data-title="Course 201: Web Dev Essentials" data-price="79.0">
+      <h3 class="font-bold text-lg mb-1">Course 201: Web Dev Essentials</h3>
+      <p class="text-slate-700 mb-3">High‑impact lessons with projects and quizzes.</p>
+      <div class="flex items-center justify-between">
+        <span class="font-semibold">$79.00</span>
+        <button class="add-to-cart px-3 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700">Add to cart</button>
+      </div>
+    </article>
+    
+    <article class="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm card" data-tags="tech" data-id="c3" data-title="Course 301: Advanced React" data-price="99.0">
+      <h3 class="font-bold text-lg mb-1">Course 301: Advanced React</h3>
+      <p class="text-slate-700 mb-3">High‑impact lessons with projects and quizzes.</p>
+      <div class="flex items-center justify-between">
+        <span class="font-semibold">$99.00</span>
+        <button class="add-to-cart px-3 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700">Add to cart</button>
+      </div>
+    </article>
+    
+    <article class="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm card" data-tags="creative" data-id="c4" data-title="Course 110: Design Basics" data-price="39.0">
+      <h3 class="font-bold text-lg mb-1">Course 110: Design Basics</h3>
+      <p class="text-slate-700 mb-3">High‑impact lessons with projects and quizzes.</p>
+      <div class="flex items-center justify-between">
+        <span class="font-semibold">$39.00</span>
+        <button class="add-to-cart px-3 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700">Add to cart</button>
+      </div>
+    </article>
+    
+    <article class="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm card" data-tags="creative" data-id="c5" data-title="Course 210: Video Editing" data-price="59.0">
+      <h3 class="font-bold text-lg mb-1">Course 210: Video Editing</h3>
+      <p class="text-slate-700 mb-3">High‑impact lessons with projects and quizzes.</p>
+      <div class="flex items-center justify-between">
+        <span class="font-semibold">$59.00</span>
+        <button class="add-to-cart px-3 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700">Add to cart</button>
+      </div>
+    </article>
+    
+    <article class="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm card" data-tags="business" data-id="c6" data-title="Course 120: Marketing Playbook" data-price="69.0">
+      <h3 class="font-bold text-lg mb-1">Course 120: Marketing Playbook</h3>
+      <p class="text-slate-700 mb-3">High‑impact lessons with projects and quizzes.</p>
+      <div class="flex items-center justify-between">
+        <span class="font-semibold">$69.00</span>
+        <button class="add-to-cart px-3 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700">Add to cart</button>
+      </div>
+    </article>
+    </div>                <div class="mt-4 text-right text-slate-800">Cart total: <strong data-cart-total>$0.00</strong> — <a class="text-blue-700 underline" href="/checkout.html">Checkout</a></div>                </main>
+  <footer class="bg-blue-900 text-white" id="site-footer"></footer>
+  <script type="module">import { bootLayout } from '/js/layout.js'; bootLayout();</script>
+
+<script type="module">
+  import { addToCart, updateCartUI } from '/js/cart.js';
+  document.querySelectorAll('.add-to-cart').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      const card = e.target.closest('article[data-id]');
+      addToCart({
+        id: card.dataset.id,
+        title: card.dataset.title,
+        price: parseFloat(card.dataset.price)
+      });
+      updateCartUI();
+    });
+  });
+</script>
+</body>
+</html>

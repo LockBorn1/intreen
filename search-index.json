@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Home",
+    "url": "/index.html",
+    "content": "Build your future with Intreen. Practical resources, events and tools to learn, work and grow."
+  },
+  {
+    "title": "Events",
+    "url": "/events.html",
+    "content": "Submit your event for approval and browse community + CaribbeanEvents.com events."
+  },
+  {
+    "title": "Search",
+    "url": "/search.html",
+    "content": "Search results across site pages and events."
+  },
+  {
+    "title": "Sign In",
+    "url": "/sign-in.html",
+    "content": "User sign in and Admin sign in."
+  },
+  {
+    "title": "About",
+    "url": "/about.html",
+    "content": "About Intreen and developer Gage Milner."
+  },
+  {
+    "title": "Checkout",
+    "url": "/checkout.html",
+    "content": "Cart items and order form."
+  }
+]

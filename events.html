@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Events • Intreen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col" class="min-h-screen flex flex-col" class="bg-slate-50 text-slate-900">
+  <header id="site-navbar" class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-4">
+      <a href="/" class="font-extrabold text-xl tracking-tight">INTREEN</a>
+      <nav class="ml-auto flex items-center gap-3">
+        <a href="/search.html" class="px-3 py-2 rounded-xl border border-slate-300 hover:bg-slate-100">Search</a>
+        <a href="/admin.html" class="px-3 py-2 rounded-xl border border-amber-300 text-amber-700 hover:bg-amber-50" id="admin-link" hidden>Admin</a>
+        <button id="logout-btn" class="px-3 py-2 rounded-xl border border-rose-300 text-rose-700 hover:bg-rose-50 hidden">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow" class="max-w-6xl mx-auto px-4 py-12 space-y-10">
+    <section class="rounded-2xl bg-white border border-slate-200 shadow-sm p-6">
+      <h2 class="text-2xl font-bold mb-2">Submit your event</h2>
+      <p class="text-slate-600 mb-6">Your submission will be reviewed by an admin before it appears on the site.</p>
+      <form id="event-form" class="grid sm:grid-cols-2 gap-4">
+        <label class="block">Title<input required name="title" class="mt-1 w-full border rounded-xl px-3 py-2"></label>
+        <label class="block">Date &amp; time<input type="datetime-local" required name="datetime" class="mt-1 w-full border rounded-xl px-3 py-2"></label>
+        <label class="block">Location<input required name="location" class="mt-1 w-full border rounded-xl px-3 py-2"></label>
+        <label class="block">Website (optional)<input name="url" class="mt-1 w-full border rounded-xl px-3 py-2" placeholder="https://..."></label>
+        <label class="block sm:col-span-2">Description<textarea required name="description" rows="4" class="mt-1 w-full border rounded-xl px-3 py-2"></textarea></label>
+        <label class="block sm:col-span-2">Image URL (optional)<input name="image" class="mt-1 w-full border rounded-xl px-3 py-2" placeholder="https://.../image.jpg"></label>
+        <div class="sm:col-span-2 flex items-center gap-3">
+          <button class="px-4 py-2 rounded-2xl bg-slate-900 text-white hover:bg-slate-800">Submit</button>
+          <span id="form-status" class="text-sm text-slate-600"></span>
+        </div>
+      </form>
+    </section>
+
+    <section id="events-section" class="space-y-6">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-bold">Events</h2>
+        <div class="flex gap-2">
+          <input id="events-search" type="search" placeholder="Filter events..." class="px-3 py-2 border rounded-xl">
+          <select id="source-filter" class="px-3 py-2 border rounded-xl">
+            <option value="all">All sources</option>
+            <option value="intreen">Community</option>
+            <option value="carib">CaribbeanEvents.com</option>
+          </select>
+        </div>
+      </div>
+      <div id="events-list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      <p id="events-empty" class="text-slate-500"></p>
+    </section>
+  </main>
+
+  <script type="module">
+    import { toggleAuthUI } from '/js/auth.js';
+    toggleAuthUI();
+  </script>
+  <script type="module" src="/js/events-page.js"></script>
+
+  <footer class="bg-blue-900 mt-20" id="site-footer"></footer>
+  <script type="module">
+    import { bootLayout } from '/js/layout.js';
+    bootLayout();
+  </script>
+</body>
+</html>

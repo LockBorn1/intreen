@@ -1,0 +1,12 @@
+{
+  "name": "intreen-static",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/generate-search-index.mjs"
+  },
+  "dependencies": {
+    "@vercel/postgres": "0.9.0",
+    "cheerio": "1.0.0-rc.12"
+  }
+}

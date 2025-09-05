@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register As Vendor • Intreen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+  <header id="site-navbar"></header>
+  
+<section class="bg-gradient-to-b from-blue-700 to-blue-600 text-white">
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-extrabold">Register As Vendor</h1>
+    <p class="text-white/80 mt-1">Apply to list your business, products, or courses.</p>
+  </div>
+</section>
+
+  <main class="flex-grow max-w-7xl mx-auto px-4 py-10 space-y-8">
+    
+<form class="grid sm:grid-cols-2 gap-4 max-w-2xl">
+  <label class="block">Business Name<input class="mt-1 w-full border rounded-xl px-3 py-2"></label>
+  <label class="block">Email<input class="mt-1 w-full border rounded-xl px-3 py-2" type="email"></label>
+  <label class="block sm:col-span-2">Description<textarea class="mt-1 w-full border rounded-xl px-3 py-2" rows="4"></textarea></label>
+  <button class="px-4 py-2 rounded-2xl bg-blue-600 text-white hover:bg-blue-700 sm:col-span-2">Submit</button>
+</form>
+
+  </main>
+  <footer class="bg-blue-900 text-white" id="site-footer"></footer>
+  <script type="module">import { bootLayout } from '/js/layout.js'; bootLayout();</script>
+</body>
+</html>

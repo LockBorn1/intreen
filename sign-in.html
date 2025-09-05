@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign In • Intreen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .toast{position:fixed;right:1rem;bottom:1rem;background:#0f172a;color:#fff;padding:.75rem 1rem;border-radius:.75rem;opacity:0;transform:translateY(8px);transition:.2s;box-shadow:0 10px 24px rgba(2,6,23,.3)}
+    .toast.show{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+  <header id="site-navbar"></header>
+  <main class="flex-grow max-w-7xl mx-auto px-4 py-12 grid lg:grid-cols-2 gap-8">
+    <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+      <h1 class="text-2xl font-extrabold mb-2">User Sign In (demo)</h1>
+      <p class="text-slate-600 mb-4">This signs you in for UI features only. Admin actions still require admin sign in.</p>
+      <form id="user-form" class="grid gap-3 max-w-sm">
+        <input type="email" placeholder="Email" class="px-3 py-2 border rounded-xl" required>
+        <input type="password" placeholder="Password" class="px-3 py-2 border rounded-xl" required>
+        <button class="px-4 py-2 rounded-2xl bg-blue-600 text-white hover:bg-blue-700">Sign In</button>
+      </form>
+    </section>
+    <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+      <h2 class="text-2xl font-extrabold mb-2">Admin Sign In</h2>
+      <p class="text-slate-600 mb-4">Use your admin password (set in Admin Dashboard or via <code>ADMIN_SECRET</code>).</p>
+      <form id="admin-form" class="grid gap-3 max-w-sm">
+        <input id="admin-pass" type="password" placeholder="Admin password" class="px-3 py-2 border rounded-xl" required>
+        <button class="px-4 py-2 rounded-2xl bg-blue-600 text-white hover:bg-blue-700">Sign In as Admin</button>
+      </form>
+      <p class="text-sm text-slate-600 mt-2">Need to set/change the admin password? <a class="text-blue-700 underline" href="/admin-dashboard.html">Open Admin Dashboard</a>.</p>
+    </section>
+  </main>
+  <footer class="bg-blue-900 text-white" id="site-footer"></footer>
+
+  <div id="toast" class="toast">Signed in</div>
+
+  <script type="module">
+    import { bootLayout } from '/js/layout.js'; bootLayout();
+    const t = document.getElementById('toast');
+    function toast(msg){ t.textContent = msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 1600); }
+
+    document.getElementById('user-form')?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      localStorage.setItem('intreen_isLoggedIn','true');
+      toast('Signed in');
+      setTimeout(()=> location.href='/', 800);
+    });
+
+    document.getElementById('admin-form')?.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const pw = document.getElementById('admin-pass').value;
+      const res = await fetch('/api/admin/login', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ password: pw })});
+      const out = await res.json();
+      if(!res.ok){ toast(out.error || 'Login failed'); return; }
+      toast('Admin signed in');
+      setTimeout(()=> location.href='/admin.html', 800);
+    });
+  </script>
+</body>
+</html>
